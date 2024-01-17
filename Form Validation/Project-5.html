@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Project-5.css">
+    <title>Form validation</title>
+</head>
+<body>
+   <form action="" onsubmit="return validateForm()"> <!-- If the function rturns true than the form will be submitted -->
+    <div id="container">
+        <h1>Form Validation</h1>
+        <div id="name">
+        
+        <input type="text" id="name1" placeholder="name">
+        <p id="u-error"></p>
+    </div>
+    <div id="pass">
+        
+        <input type="password" id="pas" placeholder="Password">
+        <p id="p-error"></p>
+    </div>
+    <div id="sub">
+        <input type="submit" id="s">
+    </div>
+    </div>
+    <script src="Project-5.js"></script>
+   </form>
+</body>
+</html>

@@ -1,0 +1,53 @@
+body
+{
+    display: flex;
+    justify-content: center;
+    background-color: orange;
+    align-items:center;
+}
+form
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 700px;
+    background-color: gray;
+}
+h1
+{
+    font-size: 40px;
+    font-family: cursive;
+    color: red;
+    text-align: center;
+}
+#name1,#pas
+{
+    padding: 10px 10px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+#sub
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#s
+{
+    font-size: 30px;
+    font-weight: bold;
+}
+#name,#pass
+{
+    box-sizing: content-box;
+}
+#u-error,#p-error
+{
+    
+    font-weight: bold;
+    color: red;
+    font-family: cursive;
+}

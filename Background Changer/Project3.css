@@ -1,0 +1,45 @@
+#color
+{
+    /* position: absolute;
+    right: 50px;
+    top: 50px; */
+    text-align: right;
+    
+}
+.col
+{
+    height: 20px;
+    width: 20px;
+    border-radius: 50px;
+    display: inline-block;
+    border: 2px solid black;
+    cursor: pointer;
+}
+#red
+{
+    background-color: red;
+}
+#blue
+{
+    background-color: blue;
+}
+#yellow
+{
+    background-color: yellow;
+}
+#orange
+{
+    background-color: orage;
+}
+h1
+{
+    margin-top: 100px;
+    text-align: center;
+}
+#img
+{
+    display: flex;
+   justify-content: center;
+   align-items: center;
+   
+}

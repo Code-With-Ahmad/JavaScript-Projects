@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Image Slider</title>
+</head>
+<body>
+    <div id="silder">
+        <div class="slides" id="slide1">
+            <img src="images/1.jpg" alt="" height = "500" width="100%">
+            <div class="caption">
+                <h1>First Image</h1>
+            </div>
+        </div>
+        <div class="slides" id="slide2">
+            <img src="images/2.jpg" alt="" height = "500" width="100%">
+            <div class="caption">
+                <h1>Second Image</h1>
+            </div>
+        </div>
+        <div class="slides" id="slide3">
+            <img src="images/3.jpg" alt="" height = "500" width="100%">
+            <div class="caption">
+                <h1>Third Image</h1>
+            </div>
+        </div>
+        <div class="slides" id="slide4">
+            <img src="images/4.jpg" alt="" height = "500" width="100%">
+            <div class="caption">
+                <h1>Fourth Image</h1>
+            </div>
+        </div>
+        <div class="arrow" id="prev" onclick="controller(-1)" >&#60;</div>
+        <div class="arrow " id="next" onclick="controller(1)" >&#62;</div>
+    </div>
+    <script src="script.js"></script>
+    
+</body>
+</html>

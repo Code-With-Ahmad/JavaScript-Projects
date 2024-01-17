@@ -1,0 +1,43 @@
+body
+{
+    margin: 0;
+}
+#slider
+{
+    position: relative;
+}
+.arrow
+{
+    position: absolute;
+    top: 35%;
+    color: black;
+    background-color: rgba(245, 222, 179, 0.635);
+    padding: 6px 20px;
+    border-radius: 50%;
+    font-size: 40px;
+    cursor: pointer;
+    font-weight: bolder;
+    text-align: center;
+    
+}
+#next
+{
+    right :10px;
+}
+#prev
+{
+    left: 10px;
+}
+.caption
+{
+    position: absolute;
+    bottom:139px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.505);
+}
+.slides
+{
+    display: none;
+}
