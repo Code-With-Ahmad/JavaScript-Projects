@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Mass Index Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .parent {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+
+        }
+
+        #form {
+            padding: 50px 0px;
+        }
+
+        #height {
+            margin-bottom: 20px;
+        }
+
+        #submit {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+
+        }
+
+        #submit input {
+            font-size: 30px;
+            text-align: center;
+            padding: 5px 10px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        .Guide h2 {
+            padding-bottom: 10px;
+        }
+
+        input::placeholder {
+            padding: 5px 10px;
+            font-size: 20px;
+        }
+
+        form input {
+            padding: 5px 10px;
+            font-size: 20px;
+        }
+
+        form label {
+            font-size: 30px;
+            padding-right: 10px;
+        }
+
+        #result h2 {
+            padding: 20px 0px;
+        }
+
+        .error {
+            padding: 10px 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="main-Heading">
+            <h1>Body Mass Index (BMI) Calculator :- </h1>
+        </div>
+        <div class="form">
+            <form id="form">
+                <div id="height">
+                    <label for="height">Height (m<sup>2</sup>) :</label>
+                    <input type="text" name="height" id="heights" placeholder="Enter Your Height">
+                    <p id="height-error" class="error"></p>
+                </div>
+                <div id="weight">
+                    <label for="weight">Weight (kg) :</label>
+                    <input type="text" name="weight" id="weights" placeholder="Enter Your Weight">
+                    <p id="weight-error" class="error"></p>
+                </div>
+                <div id="result">
+                    <h2>Your BMI Is : <span id="BMI-Result"></span></h2>
+                    <p id="resultThroughGuide"></p>
+                </div>
+                <div id="submit">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+
+        </div>
+        <div class="Guide">
+            <h2>BMI Weight Guide :</h2>
+            <p>Under-weight = less than 18.6</p>
+            <p>Normal-weight = 18.6 to 24.9</p>
+            <p>overweight = greater than 24.9</p>
+        </div>
+    </div>
+
+    <script>
+
+        let form = document.querySelector('form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            let height = parseInt(document.getElementById('heights').value);
+            let weight = parseInt(document.getElementById('weights').value);
+            let result = document.getElementById('BMI-Result');
+
+            if (isNaN(height) || height <= 0 || height == " " || height == undefined) {
+                document.getElementById('height-error').innerHTML = 'Please Enter a valid Height';
+                console.log(height, "height");
+
+                document.getElementById('height-error').style.color = 'red';
+            } else if (isNaN(weight) || weight <= 0 || weight == " " || weight == undefined) {
+                document.getElementById('weight-error').innerHTML = 'Please Enter a valid Weight';
+                document.getElementById('height-error').innerHTML = '';
+                document.getElementById('weight-error').style.color = 'red';
+            } else {
+                document.getElementById('height-error').innerHTML = '';
+                document.getElementById('weight-error').innerHTML = '';
+                let bmi = (weight / (height * height)).toFixed(1);
+                result.innerHTML = bmi;
+                if (bmi <= 18.5) {
+                    document.getElementById('resultThroughGuide').innerHTML = "You Are Under Weight"
+                    document.getElementById('resultThroughGuide').style.color = 'red'
+                }
+                else if (bmi <= 24.9) {
+                    document.getElementById('resultThroughGuide').innerHTML = "Your Weight is Normal"
+                    document.getElementById('resultThroughGuide').style.color = 'green'
+                }
+                else {
+                    document.getElementById('resultThroughGuide').innerHTML = "You Are Over Weight"
+                    document.getElementById('resultThroughGuide').style.color = 'red'
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>

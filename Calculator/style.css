@@ -131,3 +131,6 @@ h1 {
     font-weight: bolder;
     color: white;
 }
+#output-text::-webkit-scrollbar {
+  display: none;
+}

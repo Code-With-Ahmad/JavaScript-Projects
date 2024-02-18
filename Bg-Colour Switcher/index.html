@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colour Switcher</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        .parent {
+            width: 100%;
+            height: 70%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 70px;
+        }
+
+        #colours {
+            display: flex;
+            padding: 50px 0px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .green,
+        .red,
+        .blue,
+        .orange {
+            height: 100px;
+            padding: 10px 10px;
+            width: 100px;
+            border-radius: 50%;
+            border: 5px solid black;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .orange {
+            background-color: orange;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        #active-color {
+            font-family: cursive;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div id="main-Heading">
+            <h1>Colour Switcher</h1>
+        </div>
+        <div id="colours">
+            <div class="green colors" title='green'></div>
+            <div class="orange colors" title="orange"></div>
+            <div class="red colors" title="red"></div>
+            <div class="blue colors" title="blue"></div>
+        </div>
+        <div id="Active-colour-para">
+            <h2>The Current Background Colour is <span id="active-color">White</span></h2>
+        </div>
+    </div>
+    <script>
+        let currentColor = document.getElementById('active-color');
+        let SelectColor = document.getElementsByClassName('colors');
+        let ConvertToArray = Array.from(SelectColor)
+        ConvertToArray.forEach((item) => {
+            item.addEventListener('click', (e) => {
+
+                let currentColorSelected = e.target.title;
+                currentColor.innerHTML = currentColorSelected;
+                document.body.style.backgroundColor = currentColorSelected;
+            })
+        })
+
+
+    </script>
+</body>
+
+</html>
