@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Password Generator</title>
+    <!-- Linking CSS -->
+    <link rel="stylesheet" href="./style.css">
+    <!-- Linking JS -->
+    <script src="./script.js" defer></script>
+    <!-- Linking Google Fonts CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!-- Remix Icon CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>Generate a <br> <span>Random Password</span></h1>
+        <div class="display">
+            <input type="text" id="password" placeholder="Password" readonly>
+            <i class="ri-file-copy-line" id="copy" title="copy"></i>
+        </div>
+        <button id="btn"><i class="ri-ai-generate"></i> Generate Password</button>
+        <div class="popup">
+            <img src="./Images/404-tick.png" alt="">
+            <h2>Link Copied Successfully !</h2>
+
+            <button type="button" class="okBtn">OK</button>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insta Story</title>
+    <!-- Google Font CDN -->
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        html {
+            font-size: 62.5%;
+            /* 1rem = 10px */
+        }
+
+        body {
+            width: 100vw;
+            max-width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 500px;
+            height: 500px;
+            border: 3px solid black;
+            position: relative;
+        }
+
+        .stories-container {
+            height: 180px;
+            width: 100%;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.62);
+            white-space: nowrap;
+            overflow: auto;
+            padding: 20px 0px;
+            overflow-y: hidden;
+        }
+
+        .story {
+            height: 150px;
+            width: 150px;
+            border: 2px solid red;
+            border-radius: 500px;
+            overflow: hidden;
+            display: inline-block;
+            margin: 0px 10px;
+
+        }
+
+        .story img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .stories-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .currentStatus {
+            position: absolute;
+            width: 100%;
+            z-index: 999;
+            height: 100%;
+            display: none;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="currentStatus"></div>
+        <div class="stories-container">
+        </div>
+    </div>
+
+    <script>
+        let storiesArray = [
+            {
+                src: "https://images.unsplash.com/photo-1708024587407-73445142b5a8?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                image: "https://images.unsplash.com/photo-1420745981456-b95fe23f5753?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            },
+            {
+                src: "https://plus.unsplash.com/premium_photo-1706800283323-e9f633ccad85?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                image: "https://images.unsplash.com/photo-1691249739069-6fe7ef36762b?q=80&w=1372&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            },
+            {
+                src: "https://plus.unsplash.com/premium_photo-1707932496423-1ee96181ade8?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                image: "https://images.unsplash.com/photo-1708169542093-537a46dfdbcb?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            },
+            {
+                src: "https://images.unsplash.com/photo-1708020290075-ce4ae69b8e95?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                image: "https://images.unsplash.com/photo-1708022799750-afbe4be26f73?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            },
+            {
+                src: "https://images.unsplash.com/photo-1708022792768-edfab8b2be7a?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                image: "https://images.unsplash.com/photo-1708075207055-269ec68c323c?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            },
+            {
+                src: "https://images.unsplash.com/photo-1708022788962-ac942bc0af71?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                image: "https://plus.unsplash.com/premium_photo-1705433052991-8ebe1c81ce35?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            },
+            {
+                src: "https://plus.unsplash.com/premium_photo-1700575181289-b5248a43e7f0?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                image: "https://plus.unsplash.com/premium_photo-1706727288505-674d9c8ce96c?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            },
+
+        ]
+        let story = ""
+        storiesArray.forEach((item, index) => {
+            story = story + ` <div class="story">
+            //      <img id="${index}" src="${item.src}" alt="">
+            //  </div>`
+
+
+        });
+        document.querySelector('.stories-container').innerHTML = story;
+        document.querySelector('.stories-container').addEventListener('click', (e) => {
+            let story_Image = storiesArray[e.target.id].image
+            document.querySelector(".currentStatus").innerHTML = `<img src = "${story_Image}">`
+            document.querySelector(".currentStatus").style.display = "block"
+            document.querySelector(".currentStatus img").style.width = "100%"
+            document.querySelector(".currentStatus img").style.height = "500px";
+            setTimeout(() => {
+                document.querySelector(".currentStatus").style.display = "none"
+            }, 3000);
+        })
+    </script>
+</body>
+
+</html>
+
+
+
+<!--  -->

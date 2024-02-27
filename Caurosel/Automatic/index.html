@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #slider {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        #slider img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="slider">
+        <img src="https://source.unsplash.com/500x300/?codding,nature" alt="Slide 1">
+        <img src="https://source.unsplash.com/500x300/?codding,programming" alt="Slide 2">
+        <img src="https://source.unsplash.com/500x300/?codding,sports" alt="Slide 3">
+    </div>
+
+    <script>
+        var slider = document.getElementById("slider");
+        var slides = slider.getElementsByTagName("img");
+        var currentSlide = 0;
+
+        setInterval(function () {
+            for (var i = 0; i < slides.length; i++) { slides[i].style.opacity = 0; } currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].style.opacity = 1;
+        }, 3000);
+    </script>
+</body>
+
+</html>

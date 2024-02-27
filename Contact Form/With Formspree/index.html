@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <!-- Linking CSS -->
+    <link rel="stylesheet" href="./style.css">
+    <!-- Linking JS -->
+    <script src="./script.js" defer></script>
+    <!-- Linking Google Fonts CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!-- Remix Icon CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <form onsubmit="SendEmail()" action="https://formspree.io/f/xpzvrdde" method="POST">
+            <h3>Get In Touch</h3>
+            <input type="text" name="Name :" id="name" placeholder="Your Name" required>
+            <input type="email" name="Sender Email :" id="email" placeholder="Email Id" required>
+            <input type="text" id="phone" name="Phone Number" placeholder="Phone No." required>
+            <textarea name id="message" rows="4" name="Feedback" placeholder="How Can We Help You ?"></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+
+</body>
+
+</html>

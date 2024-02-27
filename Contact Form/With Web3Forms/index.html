@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <!-- Linking CSS -->
+    <link rel="stylesheet" href="./style.css">
+    <!-- Linking JS -->
+    <script src="./script.js" defer></script>
+    <!-- Linking Google Fonts CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!-- Remix Icon CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="contact-container">
+        <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
+            <input type="hidden" name="access_key" value="fee41435-129c-4557-8798-5682efcdca95">
+            <div class="contact-left-title">
+                <h2>Get In Touch</h2>
+                <hr>
+            </div>
+            <input type="text" name="Name" id="input-name" placeholder="Your Name" class="contact-inputs" required>
+            <input type="email" name="Email" id="input-email" placeholder="Your Email" class="contact-inputs" required>
+            <textarea name="Message" id="input-message" class="contact-inputs" placeholder="Enter Your Feedback Here"
+                required></textarea>
+            <button type="submit">Submit <img src="./Images/arrow_icon.png" alt=""></button>
+        </form>
+        <div class="contact-right">
+            <img src="./Images/right_img.png" alt="">
+        </div>
+    </div>
+</body>
+
+</html>
